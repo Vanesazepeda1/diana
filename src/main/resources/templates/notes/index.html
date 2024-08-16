@@ -1,0 +1,58 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+    <!-- Mostrar mensaje de confirmación en caso de éxito -->
+    <div th:if="${msg != null}">
+        <script>
+            Swal.fire({
+              title: "Confirmación",
+              text: '[[${msg}]]',
+              icon: "success"
+            });
+        </script>
+    </div>
+
+    <!-- Mostrar mensaje de error en caso de error -->
+    <div th:if="${error != null}">
+        <script>
+            Swal.fire({
+              title: "Error",
+              text: '[[${error}]]',
+              icon: "success"
+            });
+        </script>
+    </div>
+
+    <h1>Listado de Estudiante</h1>
+    <a th:href="@{/notes/create}" class="btn btn-outline-primary">Nuevo Estudiante</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>note</th>
+            <th>date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="notes : ${notes}">
+            <td th:text="${notes.id}"></td>
+            <td th:text="${notes.notes}"></td>
+            <td th:text="${notes.date}"></td>
+            <td>
+                <a th:href="@{/notes/details/{id} (id = ${notes.id}) }" class="btn btn-outline-secondary">Detalles</a> |
+                <a th:href="@{/notes/edit/{id} (id = ${notes.id}) }" class="btn btn-outline-info">Editar</a> |
+                <a th:href="@{/notes/remove/{id} (id = ${notes.id}) }" class="btn btn-outline-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item" th:each="pageNumber : ${pageNumbers}">
+                <a class="page-link" th:href="@{|/notes?page=${pageNumber}|}" th:text="${pageNumber}"></a>
+            </li>
+        </ul>
+    </nav>
+</div>

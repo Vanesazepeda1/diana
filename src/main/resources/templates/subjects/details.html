@@ -1,0 +1,25 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+    <h1>Detalles de la materia</h1>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2" >Id</dt>
+            <dd class = "col-sm-10" th:text="${subjects.id}"></dd>
+            <dt class = "col-sm-2">Nombre</dt>
+            <dd class = "col-sm-10" th:text="${subjects.name}"></dd>
+            <dt class = "col-sm-2">description</dt>
+            <dd class = "col-sm-10" th:text="${subjects.description}"></dd>
+            <dt class = "col-sm-2">mastername</dt>
+            <dd class = "col-sm-10" th:text="${subjects.mastername}"></dd>
+            <dt class = "col-sm-2">surnameteacher</dt>
+            <dd class = "col-sm-10" th:text="${subjects.surnameteacher}"></dd>
+        </dl>
+
+        <a th:href="@{/subjects/edit/{id} (id = ${subjects.id}) }" class="btn btn-outline-info">Editar</a> |
+        <a th:href="@{/subjects}">Regresar</a>
+    </div>
+</div>

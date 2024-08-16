@@ -1,0 +1,68 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+    <h1>create new students</h1>
+    <form th:action="@{/students/save}" th:object="${students}" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Write the student's name" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="lastname">LastName</label>
+                    <input type="text" class="form-control" th:field="*{lastname}" id="lastname" placeholder="Enter the student's last name" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" th:field="*{email}" id="email" placeholder="Enter the student's email" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" th:field="*{age}" id="age" placeholder="Enter the student's age" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="degree">Degree</label>
+                    <input type="text" class="form-control" th:field="*{degree}" id="degree" placeholder="Enter the students degree " required>
+                </div>
+            </div>
+        </div>
+       <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="section">Section</label>
+                    <input type="text" class="form-control" th:field="*{section}" id="section" placeholder="Escriba el section del estudiante" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="id">Iduser</label>
+                    <input type="text" class="form-control" th:field="*{id}" id="id" placeholder="Escriba el section del estudiante" required>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Guardar</button> |
+        <a th:href="@{/students}">Regresar</a>
+    </form>
+</div>

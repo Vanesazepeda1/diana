@@ -1,0 +1,37 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+    <h1>Editar docente</h1>
+    <form th:action="@{/notes/save}" th:object="${notes}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="note">Note</label>
+                    <input type="text" class="form-control" th:field="*{notes}" id="note" placeholder="Escriba el note del grupo" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" class="form-control" th:field="*{date}" id="date" placeholder="Escriba el date del docente" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="id">idsubjects</label>
+                    <input type="text" class="form-control" th:field="*{id}" id="id" placeholder="Escriba el id del estudiante" required>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button> |
+        <a th:href="@{/notes}">Regresar</a>
+    </form>
+</div>

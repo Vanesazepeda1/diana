@@ -1,0 +1,45 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+    <h1>Editar materia</h1>
+    <form th:action="@{/subjects/save}" th:object="${subjects}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Escriba el name del grupo" required>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" th:field="*{description}" id="description" placeholder="Escriba la description del estudiante" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="mastername">mastername</label>
+                        <input type="text" class="form-control" th:field="*{mastername}" id="mastername" placeholder="Escriba el email del estudiante" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="surnameteacher">surnameteacher </label>
+                        <input type="text" class="form-control" th:field="*{surnameteacher}" id="surnameteacher" placeholder="Escriba el teléfono del estudiante" required>
+                    </div>
+                </div>
+            </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button> |
+        <a th:href="@{/subjects}">Regresar</a>
+    </form>
+</div>

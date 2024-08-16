@@ -1,0 +1,49 @@
+<html lang="en"
+      xmlns:Layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      Layout:decorate="/Layouts/_mainLayout">
+
+<div layout:fragment="content">
+<form>
+    <h2>Formulario de Recordatorio de Fechas Importantes</h2>
+    <div>
+        <label for="titulo">Título del Recordatorio:</label>
+        <input type="text" id="titulo" name="titulo">
+    </div>
+    <div>
+        <label for="fecha">Fecha del Recordatorio:</label>
+        <input type="date" id="fecha" name="fecha">
+    </div>
+    <div>
+        <label for="hora">Hora del Recordatorio:</label>
+        <input type="time" id="hora" name="hora">
+    </div>
+    <div>
+        <label for="tipo">Tipo de Recordatorio:</label>
+        <select id="tipo" name="tipo">
+            <option value="">Seleccione un tipo de recordatorio</option>
+            <option value="Entrega de Tarea">Entrega de Tarea</option>
+            <option value="Examen">Examen</option>
+            <option value="Reunión">Reunión</option>
+            <option value="Otro">Otro</option>
+        </select>
+    </div>
+    <div>
+        <label for="descripcion">Descripción del Recordatorio:</label>
+        <textarea id="descripcion" name="descripcion"></textarea>
+    </div>
+    <div>
+        <label for="repetir">Repetir el Recordatorio:</label>
+        <select id="repetir" name="repetir">
+            <option value="">Seleccione una opción</option>
+            <option value="No repetir">No repetir</option>
+            <option value="Repetir diariamente">Repetir diariamente</option>
+            <option value="Repetir semanalmente">Repetir semanalmente</option>
+            <option value="Repetir mensualmente">Repetir mensualmente</option>
+        </select>
+    </div>
+    <button type="submit">Guardar Recordatorio</button>
+    <button type="reset">Limpiar</button>
+</form>
+</div>
+
+

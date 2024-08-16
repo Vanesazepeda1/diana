@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8d7da; /* Color de fondo de la página */
+        }
+         h1 {
+            font-size: 36px; /* Tamaño de fuente */
+            color: #333; /* Color del texto */
+            text-align: center; /* Centrado */
+            margin-bottom: 20px; /* Margen inferior */
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff; /* Color de fondo del formulario */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Creative - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css}" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700}" rel="stylesheet" />
+    <link th:href="@{https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic}" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css}" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link" th:href="@{formnotes}">formnotes</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{advancedsearch}">Advancedsearch</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{setreminder}">setreminder</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{synchronizenotes}">synchronizenotes</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/auth/register}">Registrar</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/auth/logout}">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+    <div style="display: flex; flex-direction: column;">
+        <li class="nav-item"><a class="nav-link" th:href="@{role}">role</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{user}">user</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{notes}">notes</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{subjects}">subjects</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{students}">students</a></li>
+    </div>
+
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Record of notes</h1>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 mb-5">Come find out your grade!</p>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- About-->
+<!-- Aquí se renderizan las vistas de contenido -->
+<div layout:fragment="content">
+    <p>Changing contents...</p>
+</div>
+
+<!-- Bootstrap core JS-->
+<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js}"></script>
+<!-- SimpleLightbox plugin JS-->
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js}"></script>
+<!-- Core theme JS-->
+<script th:src="@{js/scripts.js}"></script>
+
+<script th:src="@{https://cdn.startbootstrap.com/sb-forms-latest.js}"></script>
+<script>
+    document.getElementById('notasForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Obtener los datos del formulario
+        const nombre = document.getElementById('nombre').value;
+        const periodo = document.getElementById('periodo').value;
+
+        // Simular datos de notas (esto normalmente vendría de una base de datos)
+        const notas = {
+            '2021-1': { matematicas: 90, ciencias: 85, historia: 88 },
+            '2021-2': { matematicas: 92, ciencias: 87, historia: 89 },
+            '2022-1': { matematicas: 94, ciencias: 89, historia: 90 },
+            '2022-2': { matematicas: 96, ciencias: 91, historia: 92 }
+        };
+
+        // Verificar si hay notas para el periodo seleccionado
+        const notasPeriodo = notas[periodo];
+
+        // Mostrar las notas
+        const resultDiv = document.getElementById('result');
+        if (notasPeriodo) {
+            resultDiv.innerHTML = `
+                <h2>Notas de ${nombre} para el periodo ${periodo}</h2>
+                <ul>
+                    <li>Matemáticas: ${notasPeriodo.matematicas}</li>
+                    <li>Ciencias: ${notasPeriodo.ciencias}</li>
+                    <li>Historia: ${notasPeriodo.historia}</li>
+                </ul>
+            `;
+        } else {
+            resultDiv.innerHTML = <p>No se encontraron notas para el periodo ${periodo}.</p>;
+        }
+    });
+</script>
+</body>
+</html>
+
+

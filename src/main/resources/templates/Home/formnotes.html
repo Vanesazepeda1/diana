@@ -1,0 +1,26 @@
+<html lang="en"
+      xmlns:Layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      Layout:decorate="/Layouts/_mainLayout">
+
+<div layout:fragment="content">
+    <h1>Mostrar Notas del Periodo</h1>
+    <form id="formnotes">
+        <label for="nombre">Nombre del Estudiante:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="periodo">Periodo:</label>
+        <select id="periodo" name="periodo" required>
+            <option value="">Seleccionar periodo</option>
+            <option value="2024-1">2024-1</option>
+            <option value="2024-2">2024-2</option>
+            <option value="2024-3">2024-3</option>
+            <option value="2024-4">2024-4</option>
+            <!-- Añade más periodos según sea necesario -->
+        </select>
+
+        <button type="submit">Mostrar Notas</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+</div>

@@ -1,0 +1,44 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+    <h1>create new subjects</h1>
+    <form th:action="@{/subjects/save}" th:object="${subjects}" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Write the name of the subject" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" th:field="*{description}" id="description" placeholder="Write the description of the subject" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="mastername">mastername</label>
+                    <input type="mastername" class="form-control" th:field="*{mastername}" id="mastername" placeholder="Write the name of the subject teacher." required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="surnameteacher">surnameteacher </label>
+                    <input type="text" class="form-control" th:field="*{surnameteacher}" id="surnameteacher" placeholder="Write the surname of the subject" required>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Guardar</button> |
+        <a th:href="@{/subjects}">Regresar</a>
+    </form>
+</div>

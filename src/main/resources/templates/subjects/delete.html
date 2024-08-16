@@ -1,0 +1,30 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layouts/_mainLayout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div layout:fragment="content">
+    <h1>remove subjects</h1>
+    <h3>Are you sure you want to delete this record??</h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2" >Id</dt>
+            <dd class = "col-sm-10" th:text="${subjects.id}"></dd>
+            <dt class = "col-sm-2">Name</dt>
+            <dd class = "col-sm-10" th:text="${subjects.name}"></dd>
+            <dt class = "col-sm-2">description</dt>
+            <dd class = "col-sm-10" th:text="${subjects.description}"></dd>
+            <dt class = "col-sm-2">mastername</dt>
+            <dd class = "col-sm-10" th:text="${subjects.mastername}"></dd>
+            <dt class = "col-sm-2">surnameteacher</dt>
+            <dd class = "col-sm-10" th:text="${subjects.surnameteacher}"></dd>
+        </dl>
+
+        <form th:action="@{/subjects/delete}" method="post">
+            <input type="hidden" name="Id" th:value="${subjects.id}">
+            <input type="submit" value="Eliminar" class="btn btn-danger"> |
+            <a th:href="@{/subjects}">Regresar</a>
+        </form>
+
+    </div>
+</div>
